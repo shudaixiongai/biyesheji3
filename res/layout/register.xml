@@ -11,13 +11,13 @@
         android:orientation="horizontal" >
 
         <TextView
-            android:id="@+id/tv_name"
+            android:id="@+id/tv_re_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="用户名：" />
 
         <EditText
-            android:id="@+id/et_name"
+            android:id="@+id/re_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="8"
@@ -30,13 +30,13 @@
         android:orientation="horizontal" >
 
         <TextView
-            android:id="@+id/tv_psd"
+            android:id="@+id/tv_re_psd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="用户名：" />
+            android:text=" 密 码 ： " />
 
         <EditText
-            android:id="@+id/et_psd"
+            android:id="@+id/re_psd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="8"
@@ -44,16 +44,42 @@
             android:password="true" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/bt_login"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" 登  录 " />
+        android:orientation="horizontal" >
 
-    <Button
-        android:id="@+id/bt_register"
+        <TextView
+            android:id="@+id/tv_re_psd2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 密 码 ： " />
+
+        <EditText
+            android:id="@+id/re_psd2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="8"
+            android:hint="请再次输入密码"
+            android:password="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" 注   册 " />
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/re_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="注册" />
+        <Button 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/back"
+            android:text="返回"/>
+    </LinearLayout>
 
 </LinearLayout>
