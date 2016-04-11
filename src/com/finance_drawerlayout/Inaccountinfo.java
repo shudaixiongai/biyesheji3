@@ -17,7 +17,7 @@ import android.widget.ListView;
 
 public class Inaccountinfo extends Activity {
 	public static final String FLAG = "id";
-	ListView listView=null;
+	ListView listView = null;
 	String strType = "";
 
 	@Override
@@ -26,21 +26,21 @@ public class Inaccountinfo extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.inaccount);
 
-		 listView = (ListView) findViewById(R.id.listView1);
-		 ShowInfo();
-		 //为listView 添加单击事件
-		 listView.setOnItemClickListener(new OnItemClickListener() {
+		listView = (ListView) findViewById(R.id.listView1);
+		ShowInfo();
+		// 为listView 添加单击事件
+		listView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				Intent intent=new Intent(Inaccountinfo.this, InfoManage.class);
-				Bundle bundle=new Bundle();
+				Intent intent = new Intent(Inaccountinfo.this, InfoManage.class);
+				Bundle bundle = new Bundle();
 				bundle.putLong("id", id);
-				//将获取所点击listView的行号 传递给下一个页面
+				// 将获取所点击listView的行号 传递给下一个页面
 				intent.putExtras(bundle);
-				//startActivity(intent);
+				// startActivity(intent);
 				startActivityForResult(intent, 2);
 				finish();
 			}
@@ -51,7 +51,7 @@ public class Inaccountinfo extends Activity {
 	private void ShowInfo() {
 		String[] strInfos = null;
 		ArrayAdapter<String> arrayAdapter = null;
-		//strType = "btnininfo";
+		// strType = "btnininfo";
 		InaccountManager inaccountManager = new InaccountManager(
 				Inaccountinfo.this);
 		List<Tb_inaccount> listifos = inaccountManager.getScrollData(0,
@@ -75,8 +75,5 @@ public class Inaccountinfo extends Activity {
 		listView.setAdapter(arrayAdapter);
 
 	}
-	
-	
-	
 
 }
