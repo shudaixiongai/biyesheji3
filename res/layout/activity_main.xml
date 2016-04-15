@@ -22,26 +22,39 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" >
 
-                <Button
-                    android:id="@+id/qiehuan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.2"
-                    android:text="切换" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dip"
+                    android:background="@android:color/white" >
 
-                <TextView
-                    android:id="@+id/tv_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="           用户名"
-                    android:textSize="20sp" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dip"
+                        android:padding="5dip"
+                        android:src="@drawable/btn_more" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.2"
-                    android:src="@drawable/ic_launcher" />
+                    <TextView
+                        android:id="@+id/acitonbar_text"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:gravity="center"
+                        android:text="标题"
+                        android:textColor="#ff3c8dcf"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/btn_login"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dip"
+                        android:padding="5dip"
+                        android:src="@drawable/btn_user" />
+                </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -54,13 +67,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="本月收入：" />
+                    android:text="本月收入："
+                    android:textColor="#ff3c8dcf"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tv_shouru"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="$000.000" />
+                    android:text="$000.000"
+                    android:textColor="#ff3c8dcf" />
             </LinearLayout>
 
             <LinearLayout
@@ -73,13 +89,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="本月支出：" />
+                    android:text="本月支出："
+                    android:textColor="#ff3c8dcf"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tv_chichu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="$000.000" />
+                    android:text="$000.000"
+                    android:textColor="#ff3c8dcf" />
             </LinearLayout>
 
             <LinearLayout
@@ -90,28 +109,33 @@
                 android:orientation="horizontal" >
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="预算支出："
+                    android:textColor="#ff3c8dcf"
+                    android:textSize="18sp" />
+
+                <TextView
                     android:id="@+id/tv_yusuan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="预算支出：" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="$000.000" />
+                    android:text="$000.000"
+                    android:textColor="#ff3c8dcf" />
             </LinearLayout>
 
             <Button
                 android:id="@+id/button"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="记一笔" />
+                android:text="记一笔"
+               android:textColor="#ff3c8dcf" />
 
             <ListView
                 android:id="@+id/listview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
             </ListView>
+
         </LinearLayout>
     </FrameLayout>
 

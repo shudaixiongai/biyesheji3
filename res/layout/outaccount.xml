@@ -16,7 +16,6 @@
             android:layout_height="wrap_content"
             android:text="我的支出" 
             android:textSize="20sp"
-          
            android:layout_gravity="center_vertical"
             android:gravity="center"/>
 

@@ -2,6 +2,10 @@ package com.finance_drawerlayout;
 
 import java.util.List;
 
+import com.finance_drawerlayout.LoginView;
+
+import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.graphics.drawable.ColorDrawable;
@@ -11,14 +15,19 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.DrawerLayout.DrawerListener;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
+import android.widget.PopupWindow.OnDismissListener;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,6 +61,10 @@ public class MainActivity extends FragmentActivity {
 	private int mPopupWindowWidth;
 	// PopupWindow��height
 	private int mPopupWindowHeight;
+	private LoginView mLoginView;
+	private View view_mask;
+	private List<Tb_outaccount> outlistifos;
+	private List<Tb_inaccount> listifos;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -65,11 +78,11 @@ public class MainActivity extends FragmentActivity {
 	}
 
 	private void setview() {
-		tv_name = (TextView) findViewById(R.id.tv_name);
+		tv_name = (TextView) findViewById(R.id.acitonbar_text);
 		tv_chichu = (TextView) findViewById(R.id.tv_chichu);
 		tv_shouru = (TextView) findViewById(R.id.tv_shouru);
 		tv_yusuan = (TextView) findViewById(R.id.tv_yusuan);
-		// listview = (ListView) findViewById(R.id.button);
+		listview = (ListView) findViewById(R.id.button);
 		button = (Button) findViewById(R.id.button);
 		SharedPreferences sp = getApplicationContext().getSharedPreferences(
 				"config", MODE_PRIVATE);
@@ -78,96 +91,91 @@ public class MainActivity extends FragmentActivity {
 
 		InaccountManager inaccountManager = new InaccountManager(
 				MainActivity.this);
-		List<Tb_inaccount> listifos = inaccountManager.getScrollData(0,
+		listifos = inaccountManager.getScrollData(0,
 				(int) inaccountManager.getCount());// 获取所有收入信息,并存储到List泛型集合
 		for (int i = 0; i < listifos.size(); i++) {
 			money += listifos.get(i).getMoney();
 			Log.i("money", String.valueOf(money));
 		}
-		tv_chichu.setText(String.valueOf(money));
+		tv_chichu.setText("$" + String.valueOf(money));
 		OutaccountManager outaccountManager = new OutaccountManager(
 				MainActivity.this);
-		List<Tb_outaccount> outlistifos = outaccountManager.getScrollData(0,
+		outlistifos = outaccountManager.getScrollData(0,
 				(int) outaccountManager.getCount());// 获取所有收入信息,并存储到List泛型集合
 		for (int i = 0; i < outlistifos.size(); i++) {
 			outmonney += outlistifos.get(i).getMoney();
 		}
-		tv_shouru.setText(String.valueOf(outmonney));
+		tv_shouru.setText("$" + String.valueOf(outmonney));
+
 		button.setOnClickListener(new OnClickListener() {
-
 			@Override
 			public void onClick(View arg0) {
-				getPopupWindowInstance();
-				mPopupWindow.showAtLocation(arg0, Gravity.CENTER, 0, 0);
+				showPopWindows();
 			}
 		});
 	}
 
-	private void getPopupWindowInstance() {
-		if (null != mPopupWindow) {
-			mPopupWindow.dismiss();
-			return;
-		} else {
-			initPopuptWindow();
+	class adapter extends BaseAdapter {
+
+		@Override
+		public int getCount() {
+			return outlistifos.size() + listifos.size();
 		}
+
+		@Override
+		public Object getItem(int arg0) {
+			return arg0;
+		}
+
+		@Override
+		public long getItemId(int arg0) {
+			return arg0;
+		}
+
+		@Override
+		public View getView(int arg0, View arg1, ViewGroup arg2) {
+			ViewHolder viewHelper = new ViewHolder();
+			return null;
+		}
+
 	}
 
-	private void initPopuptWindow() {
+	class ViewHolder {
+		private ImageView iv_title;
+		private TextView tv_time;
+		private TextView tv_type;
+		private TextView tv_zhichu;
+		private TextView tv_shouru;
+	}
 
-		LayoutInflater layoutInflater = LayoutInflater.from(this);
-		View popupWindow = layoutInflater.inflate(R.layout.item, null);
-		TextView tv_option1 = (TextView) popupWindow
-				.findViewById(R.id.tv_option1);
-		TextView tv_option2 = (TextView) popupWindow
-				.findViewById(R.id.tv_option2);
-		tv_option1.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				Toast.makeText(getApplicationContext(), "1", 1).show();
-			}
-		});
-		tv_option2.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View arg0) {
-				Toast.makeText(getApplicationContext(), "2", 1).show();
-			}
-		});
-		// RadioGroup radioGroup = (RadioGroup) popupWindow
-		// .findViewById(R.id.radioGroup);
-		// radioGroup.setOnCheckedChangeListener(this);
-
-		// ����һ��PopupWindow
-		mPopupWindow = new PopupWindow(popupWindow,
-				WindowManager.LayoutParams.WRAP_CONTENT,
+	private void showPopWindows() {
+		LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View view = inflater.inflate(R.layout.view_login, null);
+		PopupWindow window = new PopupWindow(view,
+				WindowManager.LayoutParams.MATCH_PARENT,
 				WindowManager.LayoutParams.WRAP_CONTENT);
+		window.setFocusable(true);
+		ColorDrawable dw = new ColorDrawable(0xb0000000);
+		window.setBackgroundDrawable(dw);
+		window.setAnimationStyle(R.style.AppBaseTheme);
+		window.showAtLocation(MainActivity.this.findViewById(R.id.button),
+				Gravity.BOTTOM, 0, 0);
+		TextView first = (TextView) findViewById(R.id.acitonbar_text);
+		first.setOnClickListener(new OnClickListener() {
 
-		// ����SelectPicPopupWindow��������ɵ��
-		mPopupWindow.setFocusable(true);
-		mPopupWindow.setOutsideTouchable(true);
+			@Override
+			public void onClick(View arg0) {
+				Toast.makeText(getApplicationContext(), "你点击了first", 1).show();
+			}
+		});
+		window.setOnDismissListener(new OnDismissListener() {
 
-		// ʵ����һ��ColorDrawable��ɫΪ��͸��
-		ColorDrawable dw = new ColorDrawable(0000000000);
-		// ��back���������ط�ʹ����ʧ,������������ܴ���OnDismisslistener
-		// �����������ؼ��仯�Ȳ���
-		mPopupWindow.setBackgroundDrawable(dw);
-
-		// ��ȡ��Ļ��PopupWindow��width��height��
-		mScreenWidth = getWindowManager().getDefaultDisplay().getWidth();
-		mScreenHeight = getWindowManager().getDefaultDisplay().getHeight();
-		mPopupWindowWidth = mPopupWindow.getWidth();
-		mPopupWindowHeight = mPopupWindow.getHeight();
-
-		// ��ӡ��Ļ��popupwindow�Ŀ�ߣ�
-		Log.i("Tag", "ScreenWidth : " + mScreenWidth + "\n" + "ScreenHeight : "
-				+ mScreenHeight + "\n" + "PopupWindowWidth : "
-				+ mPopupWindowWidth + "\n" + "PopupWindowHeight : "
-				+ mPopupWindowHeight);
-		// ʵ����һ��ColorDrawable��ɫΪ��͸��
-		// ��back���������ط�ʹ����ʧ,������������ܴ���OnDismisslistener
-		// �����������ؼ��仯�Ȳ���
-
-		// ����SelectPicPopupWindow�������嶯��Ч��
+			@Override
+			public void onDismiss() {
+				Toast.makeText(getApplicationContext(), "popwindows消失了", 1)
+						.show();
+			}
+		});
 	}
 
 	public void OpenRightMenu(View view) {

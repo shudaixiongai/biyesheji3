@@ -17,7 +17,7 @@ import android.widget.ListView;
 
 public class Outaccountinfo extends Activity {
 	public static final String FLAG = "id";
-	ListView listView=null;
+	ListView listView = null;
 	String strType = "";
 
 	@Override
@@ -26,21 +26,22 @@ public class Outaccountinfo extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.outaccount);
 
-		 listView = (ListView) findViewById(R.id.listView1);
-		 ShowInfo();
-		 //为listView 添加单击事件
-		 listView.setOnItemClickListener(new OnItemClickListener() {
+		listView = (ListView) findViewById(R.id.listView1);
+		ShowInfo();
+		// 为listView 添加单击事件
+		listView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				Intent intent=new Intent(Outaccountinfo.this, OutfoManage.class);
-				Bundle bundle=new Bundle();
+				Intent intent = new Intent(Outaccountinfo.this,
+						OutfoManage.class);
+				Bundle bundle = new Bundle();
 				bundle.putLong("id", id);
-				//将获取所点击listView的行号 传递给下一个页面
+				// 将获取所点击listView的行号 传递给下一个页面
 				intent.putExtras(bundle);
-				//startActivity(intent);
+				// startActivity(intent);
 				startActivityForResult(intent, 2);
 				finish();
 			}
@@ -51,7 +52,7 @@ public class Outaccountinfo extends Activity {
 	private void ShowInfo() {
 		String[] strInfos = null;
 		ArrayAdapter<String> arrayAdapter = null;
-		//strType = "btnininfo";
+		// strType = "btnininfo";
 		OutaccountManager outaccountManager = new OutaccountManager(
 				Outaccountinfo.this);
 		List<Tb_outaccount> listifos = outaccountManager.getScrollData(0,
@@ -67,7 +68,6 @@ public class Outaccountinfo extends Activity {
 					+ String.valueOf(tb_outaccount.getMoney() + "元"
 							+ tb_outaccount.getTime());
 			m++;
-
 		}
 
 		arrayAdapter = new ArrayAdapter<String>(this,
@@ -75,8 +75,5 @@ public class Outaccountinfo extends Activity {
 		listView.setAdapter(arrayAdapter);
 
 	}
-	
-	
-	
 
 }
