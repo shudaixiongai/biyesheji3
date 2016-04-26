@@ -2,9 +2,6 @@ package com.finance_drawerlayout;
 
 import java.util.List;
 
-import com.finance_drawerlayout.LoginView;
-
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -15,20 +12,18 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.DrawerLayout.DrawerListener;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.PopupWindow.OnDismissListener;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -73,7 +68,7 @@ public class MainActivity extends FragmentActivity {
 		setContentView(R.layout.activity_main);
 		initView();
 		initEvents();
-		setview();
+//		setview();
 
 	}
 
@@ -82,8 +77,8 @@ public class MainActivity extends FragmentActivity {
 		tv_chichu = (TextView) findViewById(R.id.tv_chichu);
 		tv_shouru = (TextView) findViewById(R.id.tv_shouru);
 		tv_yusuan = (TextView) findViewById(R.id.tv_yusuan);
-		listview = (ListView) findViewById(R.id.button);
-		button = (Button) findViewById(R.id.button);
+//		listview = (ListView) findViewById(R.id.listview);
+//		button = (Button) findViewById(R.id.button);
 		SharedPreferences sp = getApplicationContext().getSharedPreferences(
 				"config", MODE_PRIVATE);
 		Editor editor = sp.edit();

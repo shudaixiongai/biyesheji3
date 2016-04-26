@@ -1,10 +1,10 @@
 package com.finance_drawerlayout;
 
 
-import com.zhy.demo_zhy_17_drawerlayout.R;
-
 import android.app.Activity;
 import android.os.Bundle;
+
+import com.zhy.demo_zhy_17_drawerlayout.R;
 
 public class TwoActivity extends Activity {
 	@Override

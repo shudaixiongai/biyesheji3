@@ -3,11 +3,11 @@ package com.example.android_activity.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.android_activity.model.Tb_inaccount;
-
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.example.android_activity.model.Tb_inaccount;
 
 public class InaccountManager {
 	private DBOpenHelper helper;

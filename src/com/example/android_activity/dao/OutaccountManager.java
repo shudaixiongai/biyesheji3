@@ -4,12 +4,11 @@ package com.example.android_activity.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.android_activity.model.Tb_outaccount;
-
-
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.example.android_activity.model.Tb_outaccount;
 
 public class OutaccountManager {
 	private DBOpenHelper helper;

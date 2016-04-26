@@ -1,8 +1,6 @@
 package com.finance_drawerlayout;
 
 
-import com.zhy.demo_zhy_17_drawerlayout.R;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +10,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.zhy.demo_zhy_17_drawerlayout.R;
 
 public class MenuLeftFragment extends Fragment {
 	private TextView one, two, three, four, five;

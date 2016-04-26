@@ -2,10 +2,6 @@ package com.finance_drawerlayout;
 
 import java.util.List;
 
-import com.example.android_activity.dao.InaccountManager;
-import com.example.android_activity.model.Tb_inaccount;
-import com.zhy.demo_zhy_17_drawerlayout.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +10,10 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.example.android_activity.dao.InaccountManager;
+import com.example.android_activity.model.Tb_inaccount;
+import com.zhy.demo_zhy_17_drawerlayout.R;
 
 public class Inaccountinfo extends Activity {
 	public static final String FLAG = "id";

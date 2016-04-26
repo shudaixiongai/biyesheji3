@@ -1,7 +1,5 @@
 package com.finance_drawerlayout;
 
-import com.zhy.demo_zhy_17_drawerlayout.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,6 +9,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.zhy.demo_zhy_17_drawerlayout.R;
 
 public class FourActivity extends Activity {
 	private Button bt_clear;

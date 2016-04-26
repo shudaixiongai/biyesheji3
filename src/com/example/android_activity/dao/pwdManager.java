@@ -1,11 +1,11 @@
 package com.example.android_activity.dao;
 
-import com.example.android_activity.model.Tb_pwd;
-
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
+
+import com.example.android_activity.model.Tb_pwd;
 
 public class pwdManager {
 

@@ -1,8 +1,6 @@
 package com.finance_drawerlayout;
 
 
-import com.zhy.demo_zhy_17_drawerlayout.R;
-
 import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
@@ -13,6 +11,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Scroller;
+
+import com.zhy.demo_zhy_17_drawerlayout.R;
 /**
  * ScrollerӦ��
  * @author Ra

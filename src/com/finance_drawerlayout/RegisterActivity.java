@@ -1,10 +1,7 @@
 package com.finance_drawerlayout;
 
-import com.zhy.demo_zhy_17_drawerlayout.R;
-
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
@@ -13,8 +10,9 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.zhy.demo_zhy_17_drawerlayout.R;
 
 public class RegisterActivity extends Activity {
 	private EditText et_name, et_psd, et_psd2;

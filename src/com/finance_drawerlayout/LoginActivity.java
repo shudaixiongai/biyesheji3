@@ -1,7 +1,5 @@
 package com.finance_drawerlayout;
 
-import com.zhy.demo_zhy_17_drawerlayout.R;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +13,8 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.zhy.demo_zhy_17_drawerlayout.R;
 
 public class LoginActivity extends Activity {
 	private EditText lg_name, lg_psd;
