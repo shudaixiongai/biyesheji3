@@ -2,84 +2,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical" >
 
-    <LinearLayout
+    <EditText
+        android:id="@+id/et_iphone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:ems="8" />
 
-        <TextView
-            android:id="@+id/tv_re_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="用户名：" />
-
-        <EditText
-            android:id="@+id/re_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="8"
-            android:hint="请输入用户名" />
-    </LinearLayout>
-
-    <LinearLayout
+    <EditText
+        android:id="@+id/et_et_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:ems="10" />
 
-        <TextView
-            android:id="@+id/tv_re_psd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" 密 码 ： " />
-
-        <EditText
-            android:id="@+id/re_psd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="8"
-            android:hint="请输入密码"
-            android:password="true" />
-    </LinearLayout>
-
-    <LinearLayout
+    <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:text="ok" />
 
-        <TextView
-            android:id="@+id/tv_re_psd2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" 密 码 ： " />
-
-        <EditText
-            android:id="@+id/re_psd2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="8"
-            android:hint="请再次输入密码"
-            android:password="true" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="10dp"
+    <Button
+        android:id="@+id/send_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <Button
-            android:id="@+id/re_register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="注册" />
-        <Button 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/back"
-            android:text="返回"/>
-    </LinearLayout>
+        android:text="fasong" />
 
 </LinearLayout>
