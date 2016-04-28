@@ -13,6 +13,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import cn.bmob.sms.listener.InitListener;
 
 import com.zhy.demo_zhy_17_drawerlayout.R;
 
@@ -27,8 +28,33 @@ public class LoginActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.login);
-		setView();
+		setContentView(R.layout.new_login);
+		// setView();
+		InitView();
+	}
+
+	private void InitView() {
+		Button btn_login_ok = (Button) findViewById(R.id.btn_login_ok);
+		btn_login_ok.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				Intent intent = new Intent(LoginActivity.this,
+						TestActivity.class);
+				startActivity(intent);
+
+			}
+		});
+		Button btn_login = (Button) findViewById(R.id.login_button);
+		btn_login.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				Intent intent = new Intent(LoginActivity.this,
+						RegisterActivity.class);
+				startActivity(intent);
+			}
+		});
 	}
 
 	private void setView() {
@@ -72,9 +98,9 @@ public class LoginActivity extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
-//				Intent intent = new Intent(LoginActivity.this,
-//						RegisterActivity.class);
-//				startActivity(intent);
+				// Intent intent = new Intent(LoginActivity.this,
+				// RegisterActivity.class);
+				// startActivity(intent);
 			}
 		});
 	}

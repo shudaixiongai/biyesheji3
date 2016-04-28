@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,7 +29,8 @@ public class TestActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.new_register);
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);// 去掉标题栏
+		setContentView(R.layout.new_main);
 		BmobSMS.initialize(getApplicationContext(),
 				"9654712ef670010e06fc776113d3b63f");
 		// setview();
